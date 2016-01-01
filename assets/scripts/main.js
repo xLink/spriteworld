@@ -17,6 +17,8 @@ window.onload = function() {
 
         Crafty.bind('EnterFrame', function (eventData) {
             stats.begin();
+        });
+        Crafty.bind('ExitFrame', function (eventData) {
             stats.end();
         });
     }

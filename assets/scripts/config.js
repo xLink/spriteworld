@@ -1,8 +1,17 @@
 var stats;
 
-var MAPS = {};
+var MAPS = {/*
+list below will keep us upto date with places that have been setup?
+    MAP_PALLET 100% ✓
+        MAP_HERO_HOUSE
+        MAP_RIVAL_HOUSE
+        MAP_PROF_LAB
+
+    MAP_ROUTE1 98% ✓
+*/};
 var CONFIG = {
     debug: 1,
+    toConsole: 1,
     fps: 60,
     player: null,
     canvas: {

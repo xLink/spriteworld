@@ -8,10 +8,25 @@ function renderMap(tiledmap) {
         }
     }
 
+    // fences
+    /*
+        gotta handle this one little differently, you can run down em
+        but not up em
+    */
+
+    // interactables
+    /*
+        such as HM01 bushes/trees
+        signs
+        npcs
+        ???
+    */
+
     // warps
     if (tiledmap.isLayer('warps')) {
 
         warps = tiledmap.getLayerFromSource('warps').properties;
+        // console.log(warps);
 
         // loop the entities
         for (var idx = 0; idx < tiledmap.getEntitiesInLayer('warps').length; idx++){
@@ -24,9 +39,6 @@ function renderMap(tiledmap) {
 
             // check if we have a warp assigned to that tile
             if (warps.hasOwnProperty(coords)) {
-                console.info('Found Warp');
-                console.log([coords, warps[coords]]);
-
                 // gives us MAPNAME, POSx:POSy
                 val = warps[coords].split('=');
                 // where we want to go?
@@ -50,6 +62,7 @@ function renderMap(tiledmap) {
 
 }
 
+// Render a player object to the canvas, has some collision stuff in there too
 function renderPlayer(x, y) {
     Crafty.e('2D, DOM, Color, Collision, player, Fourway')
         .attr({
@@ -76,6 +89,7 @@ function renderPlayer(x, y) {
     return CONFIG.player;
 }
 
+// helper function - mebe pushed to a seperate file?
 function getFilename(path) {
 
     segments = path.split('/');
@@ -84,20 +98,16 @@ function getFilename(path) {
     return filename;
 }
 
-//Game Trace Func, also outputs to firebug console
+// Game Trace Func, also outputs to firebug console
 function dump(msg) {
-    if (CONFIG.debug <= 0) {
-        return;
-    }
-
+    msg = '['+new Date().format('HH:mm:ss')+'] '+msg; // prefix msg with date
     ele = jQuery('#trace');
-    if (ele) {
+    if (ele && CONFIG.debug > 0) {
         var lines = ele.html();
         var lineList;
         begin = '<ul><li>';
         middle = '</li><li>';
         end = '</li></ul>';
-        msg = '['+new Date().format('HH:mm:ss')+'] '+msg; // prefix msg with date
 
         if (lines.length > 0) {
             lineList = lines.substring(begin.length, lines.length - end.length).split(middle);
@@ -112,10 +122,12 @@ function dump(msg) {
         ele.html(begin +lineList.join(middle) +end);
     }
 
-    //if(console)
-    //    console.log(msg);
+    if (CONFIG.toConsole) {
+        console.log(msg);
+    }
 }
 
+// nabbed off interwebs somewhere...crap
 Date.prototype.format = function (format, utc){
     return formatDate(this, format, utc);
 };
