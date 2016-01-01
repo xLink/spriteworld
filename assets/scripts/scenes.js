@@ -18,19 +18,23 @@ Crafty.scene('loading', function() {
 
     // load the assets defined in the config.js
     Crafty.load(CONFIG.assets,
-        function() { // when loaded
+
+        // fires when totally loaded
+        function() {
             dump('Loaded complete');
             Crafty.scene('pallet');
             Crafty.viewport.follow(CONFIG.player, 0, 0);
         },
+
+        // fires once an asset has loaded, but still more to go
         function(e) {
             dump('Loading... '+e.percent+'%');
             loading.text('Loading... '+e.percent+'%');
-            //console.log(e);
         },
+
+        // fires if an asset fails to load
         function(e) {
             dump('Error loading asset: '+getFilename(e.src));
-            //console.log(e);
         }
     );
 });
@@ -44,17 +48,17 @@ For completeness i copy the JSON to a .js file & give it a MAPS.<name> variable 
 TODO: Figure a better way to do this...
 */
 
+// Towns
 Crafty.scene('pallet', function () {
     dump('Rendering Map: pallet');
     Crafty.e('2D, Canvas, TiledMapBuilder')
         .setMapDataSource(MAPS.pallet)
         .createWorld(renderMap);
 
-
     player = renderPlayer(11, 9);
 });
 
-
+// Routes
 Crafty.scene('route_1', function () {
     dump('Rendering Map: route_1');
     Crafty.e('2D, Canvas, TiledMapBuilder')
