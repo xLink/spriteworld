@@ -52,9 +52,9 @@ MAPS.pallet =
          "opacity":1,
          "properties":
             {
-             "12:0":"MAP_ROUTE1=12:0",
-             "13:0":"MAP_ROUTE1=13:0",
-             "6:7":"MAP_HERO_HOUSE=0:0",
+             "12:0":"MAP_ROUTE1=12:40",
+             "13:0":"MAP_ROUTE1=13:40",
+             "6:7":"MAP_HERO_HOUSE_FLOOR1=4:8",
              "15:7":"MAP_RIVAL_HOUSE=0:0",
              "15:13":"MAP_PROF_LAB=0:0"
             },

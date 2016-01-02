@@ -63,8 +63,8 @@
          "opacity":1,
          "properties":
             {
-             "41:12":"MAP_PALLET=0:12",
-             "41:13":"MAP_PALLET=0:13"
+             "12:41":"MAP_PALLET=12:1",
+             "13:41":"MAP_PALLET=13:1"
             },
          "type":"tilelayer",
          "visible":true,
