@@ -55,7 +55,7 @@
              "13:0":"MAP_ROUTE1=13:40",
              "6:7":"MAP_HERO_HOUSE=0:0",
              "15:7":"MAP_RIVAL_HOUSE=0:0",
-             "15:13":"MAP_PROF_LAB=0:0"
+             "15:13":"MAP_PROF_LAB=7:12"
             },
          "type":"tilelayer",
          "visible":true,
