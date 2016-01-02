@@ -7,7 +7,6 @@ window.onload = function() {
     CONFIG.canvas.element = jQuery('#game');
     WIDTH = CONFIG.canvas.element.data('width') ;
     HEIGHT = CONFIG.canvas.element.data('height');
-    dump('Board Size: '+WIDTH+' x '+HEIGHT);
 
     // init the game engine
     Crafty.init(WIDTH* CONFIG.tile.width, HEIGHT* CONFIG.tile.height, CONFIG.canvas.element.get(0));
@@ -27,7 +26,13 @@ window.onload = function() {
         });
     }
 
+
+    Crafty.sprite(32, 32, 'assets/tiles/characters.png', {
+        player: [0, 0]
+    });
+
     // jump directly to the loading screen
     Crafty.scene('loading');
+
 
 };

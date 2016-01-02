@@ -1,4 +1,18 @@
+// get a warp string & convert it back for easy use
+function getWarpDetails(coords) {
+    // gives us MAPNAME, POSx:POSy
+    val = warps[coords].split('=');
+    // where this tile should place the character
+    placeChar = val[1].split(':');
 
+    return {
+        mapName: val[0],
+        place_character: {
+            x: parseInt(placeChar[0]),
+            y: parseInt(placeChar[1]),
+        }
+    }
+}
 
 // helper function - mebe pushed to a seperate file?
 function getFilename(path) {
@@ -8,6 +22,15 @@ function getFilename(path) {
 
     return filename;
 }
+
+// turn pixels into grid co-ords
+function getGridCoords(x, y) {
+    x = x / CONFIG.tile.width;
+    y = y / CONFIG.tile.height;
+
+    return [parseInt(x), parseInt(y)];
+}
+
 
 // Game Trace Func, also outputs to firebug console
 function dump(msg) {
