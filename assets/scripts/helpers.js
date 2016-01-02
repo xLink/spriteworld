@@ -34,9 +34,13 @@ function getGridCoords(x, y) {
 
 // Game Trace Func, also outputs to firebug console
 function dump(msg) {
+    if (CONFIG.debug === 0) {
+        return;
+    }
+
     msg = '['+new Date().format('HH:mm:ss')+'] '+msg; // prefix msg with date
     ele = jQuery('#trace');
-    if (ele && CONFIG.debug > 0) {
+    if (ele && CONFIG.toScreen) {
         var lines = ele.html();
         var lineList;
         begin = '<ul><li>';

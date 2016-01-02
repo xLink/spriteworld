@@ -13,6 +13,7 @@ list below will keep us upto date with places that have been setup?
 */};
 var CONFIG = {
     debug: 1,
+    toScreen: 0,
     toConsole: 1,
     fps: 60,
     player: null,
@@ -23,7 +24,7 @@ var CONFIG = {
     },
     render: {
         world: '2D, Canvas, TiledMapBuilder',
-        player: '2D, DOM, Collision, player, SpriteAnimation, Keyboard, Fourway'
+        player: '2D, DOM, Color, Collision, player, SpriteAnimation, Keyboard, Fourway'
     },
 
     tile: {

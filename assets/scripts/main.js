@@ -27,7 +27,7 @@ window.onload = function() {
     }
 
 
-    Crafty.sprite(32, 32, 'assets/tiles/characters.png', {
+    Crafty.sprite(64, 'assets/tiles/characters.png', {
         player: [0, 0]
     });
 

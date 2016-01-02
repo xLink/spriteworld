@@ -43,7 +43,7 @@ function renderMap(tiledmap) {
                 tile
                     .addComponent('Warp')
                     .addComponent('Color')
-                    // .color('red')
+                    .color('red')
                     .attr({'load': warp.mapName});
 
                 // dump('[WARP] Adding Warp to: '+coords+' for '+warp.mapName);
@@ -61,15 +61,15 @@ function spawnPlayer(x, y) {
         .attr({
             x: (x * CONFIG.tile.width),
             y: (y * CONFIG.tile.height),
-            w: CONFIG.tile.width,
+            w: CONFIG.tile.width ,
             h: CONFIG.tile.height
         })
         .fourway(2)
-
-        .reel('walk_left', 500, 9, 0, 3)
-        .reel('walk_right', 500, 3, 0, 3)
-        .reel('walk_up', 500, 6, 0, 3)
-        .reel('walk_down', 500, 0, 0, 3)
+        .color('pink')
+        .reel('walk_left', 500, 0, 1, 4)
+        .reel('walk_right', 500, 0, 2, 4)
+        .reel('walk_up', 500, 0, 3, 4)
+        .reel('walk_down', 500, 0, 0, 4)
         .bind('EnterFrame', function(e) {
             if (this.hit('Collision')) {
                 this.pauseAnimation();

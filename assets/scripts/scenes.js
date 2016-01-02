@@ -71,6 +71,12 @@ Crafty.scene('MAP_PALLET', function () {
             .setMapDataSource(MAPS.hero_house_floor2)
             .createWorld(renderMap);
     });
+    Crafty.scene('MAP_PROF_LAB', function () {
+        dump('Rendering Map: prof_lab');
+        Crafty.e(CONFIG.render.world)
+            .setMapDataSource(MAPS.prof_lab)
+            .createWorld(renderMap);
+    });
 
 // Routes
 Crafty.scene('MAP_ROUTE1', function () {
